@@ -1,0 +1,1397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CCSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="CCSModelStoreContainer">
+          <EntitySet Name="Address" EntityType="CCSModel.Store.Address" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Adjustment" EntityType="CCSModel.Store.Adjustment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Agency" EntityType="CCSModel.Store.Agency" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Audit" EntityType="CCSModel.Store.Audit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="City" EntityType="CCSModel.Store.City" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Container" EntityType="CCSModel.Store.Container" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DistributionType" EntityType="CCSModel.Store.DistributionType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ErrorLog" EntityType="CCSModel.Store.ErrorLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FoodCategory" EntityType="CCSModel.Store.FoodCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FoodIn" EntityType="CCSModel.Store.FoodIn" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FoodOut" EntityType="CCSModel.Store.FoodOut" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FoodSource" EntityType="CCSModel.Store.FoodSource" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FoodSourceType" EntityType="CCSModel.Store.FoodSourceType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Location" EntityType="CCSModel.Store.Location" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Log" EntityType="CCSModel.Store.Log" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="State" EntityType="CCSModel.Store.State" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Template" EntityType="CCSModel.Store.Template" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USDACategory" EntityType="CCSModel.Store.USDACategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="CCSModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Zipcode" EntityType="CCSModel.Store.Zipcode" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Address_City" Association="CCSModel.Store.FK_Address_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_State" Association="CCSModel.Store.FK_Address_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Zipcode" Association="CCSModel.Store.FK_Address_Zipcode">
+            <End Role="Zipcode" EntitySet="Zipcode" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adjustment_Audit" Association="CCSModel.Store.FK_Adjustment_Audit">
+            <End Role="Audit" EntitySet="Audit" />
+            <End Role="Adjustment" EntitySet="Adjustment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Agency_Address" Association="CCSModel.Store.FK_Agency_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Agency" EntitySet="Agency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Audit_User" Association="CCSModel.Store.FK_Audit_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Audit" EntitySet="Audit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Container_FoodCategory" Association="CCSModel.Store.FK_Container_FoodCategory">
+            <End Role="FoodCategory" EntitySet="FoodCategory" />
+            <End Role="Container" EntitySet="Container" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Container_FoodSourceType" Association="CCSModel.Store.FK_Container_FoodSourceType">
+            <End Role="FoodSourceType" EntitySet="FoodSourceType" />
+            <End Role="Container" EntitySet="Container" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Container_Location" Association="CCSModel.Store.FK_Container_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Container" EntitySet="Container" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Container_USDACategory" Association="CCSModel.Store.FK_Container_USDACategory">
+            <End Role="USDACategory" EntitySet="USDACategory" />
+            <End Role="Container" EntitySet="Container" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodIn_FoodCategory" Association="CCSModel.Store.FK_FoodIn_FoodCategory">
+            <End Role="FoodCategory" EntitySet="FoodCategory" />
+            <End Role="FoodIn" EntitySet="FoodIn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodIn_FoodSource" Association="CCSModel.Store.FK_FoodIn_FoodSource">
+            <End Role="FoodSource" EntitySet="FoodSource" />
+            <End Role="FoodIn" EntitySet="FoodIn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodIn_USDACategory" Association="CCSModel.Store.FK_FoodIn_USDACategory">
+            <End Role="USDACategory" EntitySet="USDACategory" />
+            <End Role="FoodIn" EntitySet="FoodIn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodOut_Agency" Association="CCSModel.Store.FK_FoodOut_Agency">
+            <End Role="Agency" EntitySet="Agency" />
+            <End Role="FoodOut" EntitySet="FoodOut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodOut_DistributionType" Association="CCSModel.Store.FK_FoodOut_DistributionType">
+            <End Role="DistributionType" EntitySet="DistributionType" />
+            <End Role="FoodOut" EntitySet="FoodOut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodOut_FoodCategory" Association="CCSModel.Store.FK_FoodOut_FoodCategory">
+            <End Role="FoodCategory" EntitySet="FoodCategory" />
+            <End Role="FoodOut" EntitySet="FoodOut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodOut_FoodSourceType" Association="CCSModel.Store.FK_FoodOut_FoodSourceType">
+            <End Role="FoodSourceType" EntitySet="FoodSourceType" />
+            <End Role="FoodOut" EntitySet="FoodOut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodOut_USDACategory" Association="CCSModel.Store.FK_FoodOut_USDACategory">
+            <End Role="USDACategory" EntitySet="USDACategory" />
+            <End Role="FoodOut" EntitySet="FoodOut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodSource_Address" Association="CCSModel.Store.FK_FoodSource_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="FoodSource" EntitySet="FoodSource" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodSource_FoodSourceType" Association="CCSModel.Store.FK_FoodSource_FoodSourceType">
+            <End Role="FoodSourceType" EntitySet="FoodSourceType" />
+            <End Role="FoodSource" EntitySet="FoodSource" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Log_Log" Association="CCSModel.Store.FK_Log_Log">
+            <End Role="User" EntitySet="User" />
+            <End Role="Log" EntitySet="Log" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StreetAddress1" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="StreetAddress2" Type="varchar" MaxLength="50" />
+          <Property Name="CityID" Type="smallint" Nullable="false" />
+          <Property Name="StateID" Type="smallint" Nullable="false" />
+          <Property Name="ZipID" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Adjustment">
+          <Key>
+            <PropertyRef Name="AdjustmentID" />
+          </Key>
+          <Property Name="AdjustmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Weight" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="FoodCategory" Type="varchar" MaxLength="30" />
+          <Property Name="Location" Type="varchar" MaxLength="25" />
+          <Property Name="isUSDA" Type="bit" />
+          <Property Name="USDANumber" Type="varchar" MaxLength="20" />
+          <Property Name="Cases" Type="smallint" />
+          <Property Name="AuditID" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Agency">
+          <Key>
+            <PropertyRef Name="AgencyID" />
+          </Key>
+          <Property Name="AgencyID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AgencyName" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="AddressID" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Audit">
+          <Key>
+            <PropertyRef Name="AuditID" />
+          </Key>
+          <Property Name="AuditID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="smalldatetime" Nullable="false" />
+          <Property Name="UserID" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Container">
+          <Key>
+            <PropertyRef Name="ContainerID" />
+          </Key>
+          <Property Name="ContainerID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BinNumber" Type="smallint" Nullable="false" />
+          <Property Name="Weight" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="isUSDA" Type="bit" />
+          <Property Name="USDAID" Type="smallint" />
+          <Property Name="FoodCategoryID" Type="smallint" />
+          <Property Name="LocationID" Type="smallint" Nullable="false" />
+          <Property Name="Cases" Type="smallint" />
+          <Property Name="FoodSourcesTypeID" Type="smallint" />
+        </EntityType>
+        <EntityType Name="DistributionType">
+          <Key>
+            <PropertyRef Name="DistributionTypeID" />
+          </Key>
+          <Property Name="DistributionTypeID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DistributionType" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="ToClients" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="ErrorLogID" />
+          </Key>
+          <Property Name="ErrorLogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="FunctionName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="LineNumber" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="ErrorText" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodCategory">
+          <Key>
+            <PropertyRef Name="FoodCategoryID" />
+          </Key>
+          <Property Name="FoodCategoryID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryType" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Perishable" Type="bit" Nullable="false" />
+          <Property Name="NonFood" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodIn">
+          <Key>
+            <PropertyRef Name="FoodInID" />
+          </Key>
+          <Property Name="FoodInID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TimeStamp" Type="smalldatetime" Nullable="false" />
+          <Property Name="Weight" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="Count" Type="smallint" />
+          <Property Name="FoodSourceID" Type="smallint" Nullable="false" />
+          <Property Name="FoodCategoryID" Type="smallint" />
+          <Property Name="USDAID" Type="smallint" />
+        </EntityType>
+        <EntityType Name="FoodOut">
+          <Key>
+            <PropertyRef Name="DistributionID" />
+          </Key>
+          <Property Name="DistributionID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="FoodSourceTypeID" Type="smallint" Nullable="false" />
+          <Property Name="DistributionTypeID" Type="smallint" Nullable="false" />
+          <Property Name="Count" Type="smallint" />
+          <Property Name="USDAID" Type="smallint" />
+          <Property Name="FoodCategoryID" Type="smallint" />
+          <Property Name="AgencyID" Type="smallint" />
+        </EntityType>
+        <EntityType Name="FoodSource">
+          <Key>
+            <PropertyRef Name="FoodSourceID" />
+          </Key>
+          <Property Name="FoodSourceID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Source" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="StoreID" Type="varchar" MaxLength="10" />
+          <Property Name="FoodSourceTypeID" Type="smallint" Nullable="false" />
+          <Property Name="AddressID" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodSourceType">
+          <Key>
+            <PropertyRef Name="FoodSourceTypeID" />
+          </Key>
+          <Property Name="FoodSourceTypeID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FoodSourceType" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoomName" Type="varchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StateFullName" Type="varchar" MaxLength="50" />
+          <Property Name="StateShortName" Type="char" Nullable="false" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="Template">
+          <Key>
+            <PropertyRef Name="TemplateID" />
+          </Key>
+          <Property Name="TemplateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TemplateName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Data" Type="xml" Nullable="false" />
+          <Property Name="TemplateType" Type="smallint" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="USDACategory">
+          <Key>
+            <PropertyRef Name="USDAID" />
+          </Key>
+          <Property Name="USDAID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="USDANumber" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="Admin" Type="bit" Nullable="false" />
+          <Property Name="Password" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zipcode">
+          <Key>
+            <PropertyRef Name="ZipID" />
+          </Key>
+          <Property Name="ZipID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ZipCode" Type="varchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_Address_City">
+          <End Role="City" Type="CCSModel.Store.City" Multiplicity="1" />
+          <End Role="Address" Type="CCSModel.Store.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_State">
+          <End Role="State" Type="CCSModel.Store.State" Multiplicity="1" />
+          <End Role="Address" Type="CCSModel.Store.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Zipcode">
+          <End Role="Zipcode" Type="CCSModel.Store.Zipcode" Multiplicity="1" />
+          <End Role="Address" Type="CCSModel.Store.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zipcode">
+              <PropertyRef Name="ZipID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="ZipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adjustment_Audit">
+          <End Role="Audit" Type="CCSModel.Store.Audit" Multiplicity="1" />
+          <End Role="Adjustment" Type="CCSModel.Store.Adjustment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Audit">
+              <PropertyRef Name="AuditID" />
+            </Principal>
+            <Dependent Role="Adjustment">
+              <PropertyRef Name="AuditID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Agency_Address">
+          <End Role="Address" Type="CCSModel.Store.Address" Multiplicity="1" />
+          <End Role="Agency" Type="CCSModel.Store.Agency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="Agency">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Audit_User">
+          <End Role="User" Type="CCSModel.Store.User" Multiplicity="1" />
+          <End Role="Audit" Type="CCSModel.Store.Audit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Audit">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Container_FoodCategory">
+          <End Role="FoodCategory" Type="CCSModel.Store.FoodCategory" Multiplicity="0..1" />
+          <End Role="Container" Type="CCSModel.Store.Container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="FoodCategoryID" />
+            </Principal>
+            <Dependent Role="Container">
+              <PropertyRef Name="FoodCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Container_FoodSourceType">
+          <End Role="FoodSourceType" Type="CCSModel.Store.FoodSourceType" Multiplicity="0..1" />
+          <End Role="Container" Type="CCSModel.Store.Container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodSourceType">
+              <PropertyRef Name="FoodSourceTypeID" />
+            </Principal>
+            <Dependent Role="Container">
+              <PropertyRef Name="FoodSourcesTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Container_Location">
+          <End Role="Location" Type="CCSModel.Store.Location" Multiplicity="1" />
+          <End Role="Container" Type="CCSModel.Store.Container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Container">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Container_USDACategory">
+          <End Role="USDACategory" Type="CCSModel.Store.USDACategory" Multiplicity="0..1" />
+          <End Role="Container" Type="CCSModel.Store.Container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USDACategory">
+              <PropertyRef Name="USDAID" />
+            </Principal>
+            <Dependent Role="Container">
+              <PropertyRef Name="USDAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodIn_FoodCategory">
+          <End Role="FoodCategory" Type="CCSModel.Store.FoodCategory" Multiplicity="0..1" />
+          <End Role="FoodIn" Type="CCSModel.Store.FoodIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="FoodCategoryID" />
+            </Principal>
+            <Dependent Role="FoodIn">
+              <PropertyRef Name="FoodCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodIn_FoodSource">
+          <End Role="FoodSource" Type="CCSModel.Store.FoodSource" Multiplicity="1" />
+          <End Role="FoodIn" Type="CCSModel.Store.FoodIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodSource">
+              <PropertyRef Name="FoodSourceID" />
+            </Principal>
+            <Dependent Role="FoodIn">
+              <PropertyRef Name="FoodSourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodIn_USDACategory">
+          <End Role="USDACategory" Type="CCSModel.Store.USDACategory" Multiplicity="0..1" />
+          <End Role="FoodIn" Type="CCSModel.Store.FoodIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USDACategory">
+              <PropertyRef Name="USDAID" />
+            </Principal>
+            <Dependent Role="FoodIn">
+              <PropertyRef Name="USDAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodOut_Agency">
+          <End Role="Agency" Type="CCSModel.Store.Agency" Multiplicity="0..1" />
+          <End Role="FoodOut" Type="CCSModel.Store.FoodOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agency">
+              <PropertyRef Name="AgencyID" />
+            </Principal>
+            <Dependent Role="FoodOut">
+              <PropertyRef Name="AgencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodOut_DistributionType">
+          <End Role="DistributionType" Type="CCSModel.Store.DistributionType" Multiplicity="1" />
+          <End Role="FoodOut" Type="CCSModel.Store.FoodOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DistributionType">
+              <PropertyRef Name="DistributionTypeID" />
+            </Principal>
+            <Dependent Role="FoodOut">
+              <PropertyRef Name="DistributionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodOut_FoodCategory">
+          <End Role="FoodCategory" Type="CCSModel.Store.FoodCategory" Multiplicity="0..1" />
+          <End Role="FoodOut" Type="CCSModel.Store.FoodOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="FoodCategoryID" />
+            </Principal>
+            <Dependent Role="FoodOut">
+              <PropertyRef Name="FoodCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodOut_FoodSourceType">
+          <End Role="FoodSourceType" Type="CCSModel.Store.FoodSourceType" Multiplicity="1" />
+          <End Role="FoodOut" Type="CCSModel.Store.FoodOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodSourceType">
+              <PropertyRef Name="FoodSourceTypeID" />
+            </Principal>
+            <Dependent Role="FoodOut">
+              <PropertyRef Name="FoodSourceTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodOut_USDACategory">
+          <End Role="USDACategory" Type="CCSModel.Store.USDACategory" Multiplicity="0..1" />
+          <End Role="FoodOut" Type="CCSModel.Store.FoodOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USDACategory">
+              <PropertyRef Name="USDAID" />
+            </Principal>
+            <Dependent Role="FoodOut">
+              <PropertyRef Name="USDAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodSource_Address">
+          <End Role="Address" Type="CCSModel.Store.Address" Multiplicity="1" />
+          <End Role="FoodSource" Type="CCSModel.Store.FoodSource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="FoodSource">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodSource_FoodSourceType">
+          <End Role="FoodSourceType" Type="CCSModel.Store.FoodSourceType" Multiplicity="1" />
+          <End Role="FoodSource" Type="CCSModel.Store.FoodSource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodSourceType">
+              <PropertyRef Name="FoodSourceTypeID" />
+            </Principal>
+            <Dependent Role="FoodSource">
+              <PropertyRef Name="FoodSourceTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Log_Log">
+          <End Role="User" Type="CCSModel.Store.User" Multiplicity="1" />
+          <End Role="Log" Type="CCSModel.Store.Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CCSModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CCSEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="CCSModel.Address" />
+          <EntitySet Name="Agencies" EntityType="CCSModel.Agency" />
+          <EntitySet Name="Cities" EntityType="CCSModel.City" />
+          <EntitySet Name="Containers" EntityType="CCSModel.Container" />
+          <EntitySet Name="DistributionTypes" EntityType="CCSModel.DistributionType" />
+          <EntitySet Name="FoodCategories" EntityType="CCSModel.FoodCategory" />
+          <EntitySet Name="FoodIns" EntityType="CCSModel.FoodIn" />
+          <EntitySet Name="FoodSources" EntityType="CCSModel.FoodSource" />
+          <EntitySet Name="FoodSourceTypes" EntityType="CCSModel.FoodSourceType" />
+          <EntitySet Name="Locations" EntityType="CCSModel.Location" />
+          <EntitySet Name="Logs" EntityType="CCSModel.Log" />
+          <EntitySet Name="States" EntityType="CCSModel.State" />
+          <EntitySet Name="USDACategories" EntityType="CCSModel.USDACategory" />
+          <EntitySet Name="Users" EntityType="CCSModel.User" />
+          <EntitySet Name="Zipcodes" EntityType="CCSModel.Zipcode" />
+          <AssociationSet Name="FK_Address_City" Association="CCSModel.FK_Address_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_State" Association="CCSModel.FK_Address_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Zipcode" Association="CCSModel.FK_Address_Zipcode">
+            <End Role="Zipcode" EntitySet="Zipcodes" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Agency_Address" Association="CCSModel.FK_Agency_Address">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Agency" EntitySet="Agencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodSource_Address" Association="CCSModel.FK_FoodSource_Address">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="FoodSource" EntitySet="FoodSources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Container_FoodCategory" Association="CCSModel.FK_Container_FoodCategory">
+            <End Role="FoodCategory" EntitySet="FoodCategories" />
+            <End Role="Container" EntitySet="Containers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Container_FoodSourceType" Association="CCSModel.FK_Container_FoodSourceType">
+            <End Role="FoodSourceType" EntitySet="FoodSourceTypes" />
+            <End Role="Container" EntitySet="Containers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Container_Location" Association="CCSModel.FK_Container_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Container" EntitySet="Containers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Container_USDACategory" Association="CCSModel.FK_Container_USDACategory">
+            <End Role="USDACategory" EntitySet="USDACategories" />
+            <End Role="Container" EntitySet="Containers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodIn_FoodCategory" Association="CCSModel.FK_FoodIn_FoodCategory">
+            <End Role="FoodCategory" EntitySet="FoodCategories" />
+            <End Role="FoodIn" EntitySet="FoodIns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodIn_FoodSource" Association="CCSModel.FK_FoodIn_FoodSource">
+            <End Role="FoodSource" EntitySet="FoodSources" />
+            <End Role="FoodIn" EntitySet="FoodIns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodIn_USDACategory" Association="CCSModel.FK_FoodIn_USDACategory">
+            <End Role="USDACategory" EntitySet="USDACategories" />
+            <End Role="FoodIn" EntitySet="FoodIns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodSource_FoodSourceType" Association="CCSModel.FK_FoodSource_FoodSourceType">
+            <End Role="FoodSourceType" EntitySet="FoodSourceTypes" />
+            <End Role="FoodSource" EntitySet="FoodSources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Log_Log" Association="CCSModel.FK_Log_Log">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Log" EntitySet="Logs" />
+          </AssociationSet>
+          <EntitySet Name="Templates" EntityType="CCSModel.Template" />
+          <EntitySet Name="Adjustments" EntityType="CCSModel.Adjustment" />
+          <EntitySet Name="Audits" EntityType="CCSModel.Audit" />
+          <AssociationSet Name="FK_Adjustment_Audit" Association="CCSModel.FK_Adjustment_Audit">
+            <End Role="Audit" EntitySet="Audits" />
+            <End Role="Adjustment" EntitySet="Adjustments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Audit_User" Association="CCSModel.FK_Audit_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Audit" EntitySet="Audits" />
+          </AssociationSet>
+          <EntitySet Name="ErrorLogs" EntityType="CCSModel.ErrorLog" />
+          <EntitySet Name="FoodOuts" EntityType="CCSModel.FoodOut" />
+          <AssociationSet Name="FK_FoodOut_Agency" Association="CCSModel.FK_FoodOut_Agency">
+            <End Role="Agency" EntitySet="Agencies" />
+            <End Role="FoodOut" EntitySet="FoodOuts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodOut_DistributionType" Association="CCSModel.FK_FoodOut_DistributionType">
+            <End Role="DistributionType" EntitySet="DistributionTypes" />
+            <End Role="FoodOut" EntitySet="FoodOuts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodOut_FoodCategory" Association="CCSModel.FK_FoodOut_FoodCategory">
+            <End Role="FoodCategory" EntitySet="FoodCategories" />
+            <End Role="FoodOut" EntitySet="FoodOuts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodOut_FoodSourceType" Association="CCSModel.FK_FoodOut_FoodSourceType">
+            <End Role="FoodSourceType" EntitySet="FoodSourceTypes" />
+            <End Role="FoodOut" EntitySet="FoodOuts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodOut_USDACategory" Association="CCSModel.FK_FoodOut_USDACategory">
+            <End Role="USDACategory" EntitySet="USDACategories" />
+            <End Role="FoodOut" EntitySet="FoodOuts" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="StreetAddress1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="StreetAddress2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CityID" Type="Int16" Nullable="false" />
+          <Property Name="StateID" Type="Int16" Nullable="false" />
+          <Property Name="ZipID" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="CCSModel.FK_Address_City" FromRole="Address" ToRole="City" />
+          <NavigationProperty Name="State" Relationship="CCSModel.FK_Address_State" FromRole="Address" ToRole="State" />
+          <NavigationProperty Name="Zipcode" Relationship="CCSModel.FK_Address_Zipcode" FromRole="Address" ToRole="Zipcode" />
+          <NavigationProperty Name="Agencies" Relationship="CCSModel.FK_Agency_Address" FromRole="Address" ToRole="Agency" />
+          <NavigationProperty Name="FoodSources" Relationship="CCSModel.FK_FoodSource_Address" FromRole="Address" ToRole="FoodSource" />
+        </EntityType>
+        <EntityType Name="Agency">
+          <Key>
+            <PropertyRef Name="AgencyID" />
+          </Key>
+          <Property Name="AgencyID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgencyName" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="AddressID" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="CCSModel.FK_Agency_Address" FromRole="Agency" ToRole="Address" />
+          <NavigationProperty Name="FoodOuts" Relationship="CCSModel.FK_FoodOut_Agency" FromRole="Agency" ToRole="FoodOut" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Addresses" Relationship="CCSModel.FK_Address_City" FromRole="City" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="Container">
+          <Key>
+            <PropertyRef Name="ContainerID" />
+          </Key>
+          <Property Name="ContainerID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="BinNumber" Type="Int16" Nullable="false" />
+          <Property Name="Weight" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="isUSDA" Type="Boolean" />
+          <Property Name="USDAID" Type="Int16" />
+          <Property Name="FoodCategoryID" Type="Int16" />
+          <Property Name="LocationID" Type="Int16" Nullable="false" />
+          <Property Name="Cases" Type="Int16" />
+          <Property Name="FoodSourcesTypeID" Type="Int16" />
+          <NavigationProperty Name="FoodCategory" Relationship="CCSModel.FK_Container_FoodCategory" FromRole="Container" ToRole="FoodCategory" />
+          <NavigationProperty Name="FoodSourceType" Relationship="CCSModel.FK_Container_FoodSourceType" FromRole="Container" ToRole="FoodSourceType" />
+          <NavigationProperty Name="Location" Relationship="CCSModel.FK_Container_Location" FromRole="Container" ToRole="Location" />
+          <NavigationProperty Name="USDACategory" Relationship="CCSModel.FK_Container_USDACategory" FromRole="Container" ToRole="USDACategory" />
+        </EntityType>
+        <EntityType Name="DistributionType">
+          <Key>
+            <PropertyRef Name="DistributionTypeID" />
+          </Key>
+          <Property Name="DistributionTypeID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DistributionType1" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="ToClients" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="FoodOuts" Relationship="CCSModel.FK_FoodOut_DistributionType" FromRole="DistributionType" ToRole="FoodOut" />
+        </EntityType>
+        <EntityType Name="FoodCategory">
+          <Key>
+            <PropertyRef Name="FoodCategoryID" />
+          </Key>
+          <Property Name="FoodCategoryID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryType" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Perishable" Type="Boolean" Nullable="false" />
+          <Property Name="NonFood" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Containers" Relationship="CCSModel.FK_Container_FoodCategory" FromRole="FoodCategory" ToRole="Container" />
+          <NavigationProperty Name="FoodIns" Relationship="CCSModel.FK_FoodIn_FoodCategory" FromRole="FoodCategory" ToRole="FoodIn" />
+          <NavigationProperty Name="FoodOuts" Relationship="CCSModel.FK_FoodOut_FoodCategory" FromRole="FoodCategory" ToRole="FoodOut" />
+        </EntityType>
+        <EntityType Name="FoodIn">
+          <Key>
+            <PropertyRef Name="FoodInID" />
+          </Key>
+          <Property Name="FoodInID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TimeStamp" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Weight" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="Count" Type="Int16" />
+          <Property Name="FoodSourceID" Type="Int16" Nullable="false" />
+          <Property Name="FoodCategoryID" Type="Int16" />
+          <Property Name="USDAID" Type="Int16" />
+          <NavigationProperty Name="FoodCategory" Relationship="CCSModel.FK_FoodIn_FoodCategory" FromRole="FoodIn" ToRole="FoodCategory" />
+          <NavigationProperty Name="FoodSource" Relationship="CCSModel.FK_FoodIn_FoodSource" FromRole="FoodIn" ToRole="FoodSource" />
+          <NavigationProperty Name="USDACategory" Relationship="CCSModel.FK_FoodIn_USDACategory" FromRole="FoodIn" ToRole="USDACategory" />
+        </EntityType>
+        <EntityType Name="FoodSource">
+          <Key>
+            <PropertyRef Name="FoodSourceID" />
+          </Key>
+          <Property Name="FoodSourceID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Source" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="StoreID" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="FoodSourceTypeID" Type="Int16" Nullable="false" />
+          <Property Name="AddressID" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="CCSModel.FK_FoodSource_Address" FromRole="FoodSource" ToRole="Address" />
+          <NavigationProperty Name="FoodIns" Relationship="CCSModel.FK_FoodIn_FoodSource" FromRole="FoodSource" ToRole="FoodIn" />
+          <NavigationProperty Name="FoodSourceType" Relationship="CCSModel.FK_FoodSource_FoodSourceType" FromRole="FoodSource" ToRole="FoodSourceType" />
+        </EntityType>
+        <EntityType Name="FoodSourceType">
+          <Key>
+            <PropertyRef Name="FoodSourceTypeID" />
+          </Key>
+          <Property Name="FoodSourceTypeID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodSourceType1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Containers" Relationship="CCSModel.FK_Container_FoodSourceType" FromRole="FoodSourceType" ToRole="Container" />
+          <NavigationProperty Name="FoodSources" Relationship="CCSModel.FK_FoodSource_FoodSourceType" FromRole="FoodSourceType" ToRole="FoodSource" />
+          <NavigationProperty Name="FoodOuts" Relationship="CCSModel.FK_FoodOut_FoodSourceType" FromRole="FoodSourceType" ToRole="FoodOut" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RoomName" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Containers" Relationship="CCSModel.FK_Container_Location" FromRole="Location" ToRole="Container" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="CCSModel.FK_Log_Log" FromRole="Log" ToRole="User" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="StateFullName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="StateShortName" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="Addresses" Relationship="CCSModel.FK_Address_State" FromRole="State" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="USDACategory">
+          <Key>
+            <PropertyRef Name="USDAID" />
+          </Key>
+          <Property Name="USDAID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Containers" Relationship="CCSModel.FK_Container_USDACategory" FromRole="USDACategory" ToRole="Container" />
+          <NavigationProperty Name="FoodIns" Relationship="CCSModel.FK_FoodIn_USDACategory" FromRole="USDACategory" ToRole="FoodIn" />
+          <Property Type="String" Name="USDANumber" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FoodOuts" Relationship="CCSModel.FK_FoodOut_USDACategory" FromRole="USDACategory" ToRole="FoodOut" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="Admin" Type="Boolean" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Logs" Relationship="CCSModel.FK_Log_Log" FromRole="User" ToRole="Log" />
+          <NavigationProperty Name="Audits" Relationship="CCSModel.FK_Audit_User" FromRole="User" ToRole="Audit" />
+        </EntityType>
+        <EntityType Name="Zipcode">
+          <Key>
+            <PropertyRef Name="ZipID" />
+          </Key>
+          <Property Name="ZipID" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ZipCode1" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Addresses" Relationship="CCSModel.FK_Address_Zipcode" FromRole="Zipcode" ToRole="Address" />
+        </EntityType>
+        <Association Name="FK_Address_City">
+          <End Role="City" Type="CCSModel.City" Multiplicity="1" />
+          <End Role="Address" Type="CCSModel.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_State">
+          <End Role="State" Type="CCSModel.State" Multiplicity="1" />
+          <End Role="Address" Type="CCSModel.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Zipcode">
+          <End Role="Zipcode" Type="CCSModel.Zipcode" Multiplicity="1" />
+          <End Role="Address" Type="CCSModel.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zipcode">
+              <PropertyRef Name="ZipID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="ZipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Agency_Address">
+          <End Role="Address" Type="CCSModel.Address" Multiplicity="1" />
+          <End Role="Agency" Type="CCSModel.Agency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="Agency">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodSource_Address">
+          <End Role="Address" Type="CCSModel.Address" Multiplicity="1" />
+          <End Role="FoodSource" Type="CCSModel.FoodSource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="FoodSource">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Container_FoodCategory">
+          <End Role="FoodCategory" Type="CCSModel.FoodCategory" Multiplicity="0..1" />
+          <End Role="Container" Type="CCSModel.Container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="FoodCategoryID" />
+            </Principal>
+            <Dependent Role="Container">
+              <PropertyRef Name="FoodCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Container_FoodSourceType">
+          <End Role="FoodSourceType" Type="CCSModel.FoodSourceType" Multiplicity="0..1" />
+          <End Role="Container" Type="CCSModel.Container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodSourceType">
+              <PropertyRef Name="FoodSourceTypeID" />
+            </Principal>
+            <Dependent Role="Container">
+              <PropertyRef Name="FoodSourcesTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Container_Location">
+          <End Role="Location" Type="CCSModel.Location" Multiplicity="1" />
+          <End Role="Container" Type="CCSModel.Container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Container">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Container_USDACategory">
+          <End Role="USDACategory" Type="CCSModel.USDACategory" Multiplicity="0..1" />
+          <End Role="Container" Type="CCSModel.Container" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USDACategory">
+              <PropertyRef Name="USDAID" />
+            </Principal>
+            <Dependent Role="Container">
+              <PropertyRef Name="USDAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodIn_FoodCategory">
+          <End Role="FoodCategory" Type="CCSModel.FoodCategory" Multiplicity="0..1" />
+          <End Role="FoodIn" Type="CCSModel.FoodIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="FoodCategoryID" />
+            </Principal>
+            <Dependent Role="FoodIn">
+              <PropertyRef Name="FoodCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodIn_FoodSource">
+          <End Role="FoodSource" Type="CCSModel.FoodSource" Multiplicity="1" />
+          <End Role="FoodIn" Type="CCSModel.FoodIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodSource">
+              <PropertyRef Name="FoodSourceID" />
+            </Principal>
+            <Dependent Role="FoodIn">
+              <PropertyRef Name="FoodSourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodIn_USDACategory">
+          <End Role="USDACategory" Type="CCSModel.USDACategory" Multiplicity="0..1" />
+          <End Role="FoodIn" Type="CCSModel.FoodIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USDACategory">
+              <PropertyRef Name="USDAID" />
+            </Principal>
+            <Dependent Role="FoodIn">
+              <PropertyRef Name="USDAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodSource_FoodSourceType">
+          <End Role="FoodSourceType" Type="CCSModel.FoodSourceType" Multiplicity="1" />
+          <End Role="FoodSource" Type="CCSModel.FoodSource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodSourceType">
+              <PropertyRef Name="FoodSourceTypeID" />
+            </Principal>
+            <Dependent Role="FoodSource">
+              <PropertyRef Name="FoodSourceTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Log_Log">
+          <End Role="User" Type="CCSModel.User" Multiplicity="1" />
+          <End Role="Log" Type="CCSModel.Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Template">
+          <Key>
+            <PropertyRef Name="TemplateID" />
+          </Key>
+          <Property Type="Int32" Name="TemplateID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TemplateName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Data" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="TemplateType" Nullable="false" />
+          <Property Type="DateTime" Name="LastUpdated" Nullable="false" Precision="3" />
+          <Property Type="String" Name="LastUpdatedBy" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Adjustment">
+          <Key>
+            <PropertyRef Name="AdjustmentID" />
+          </Key>
+          <Property Type="Int32" Name="AdjustmentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Decimal" Name="Weight" Precision="9" Scale="2" />
+          <Property Type="String" Name="FoodCategory" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Location" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="isUSDA" />
+          <Property Type="String" Name="USDANumber" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="Cases" />
+          <Property Type="Int16" Name="AuditID" Nullable="false" />
+          <NavigationProperty Name="Audit" Relationship="CCSModel.FK_Adjustment_Audit" FromRole="Adjustment" ToRole="Audit" />
+        </EntityType>
+        <EntityType Name="Audit">
+          <Key>
+            <PropertyRef Name="AuditID" />
+          </Key>
+          <Property Type="Int16" Name="AuditID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="0" />
+          <Property Type="Int16" Name="UserID" Nullable="false" />
+          <NavigationProperty Name="Adjustments" Relationship="CCSModel.FK_Adjustment_Audit" FromRole="Audit" ToRole="Adjustment" />
+          <NavigationProperty Name="User" Relationship="CCSModel.FK_Audit_User" FromRole="Audit" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Adjustment_Audit">
+          <End Type="CCSModel.Audit" Role="Audit" Multiplicity="1" />
+          <End Type="CCSModel.Adjustment" Role="Adjustment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Audit">
+              <PropertyRef Name="AuditID" />
+            </Principal>
+            <Dependent Role="Adjustment">
+              <PropertyRef Name="AuditID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Audit_User">
+          <End Type="CCSModel.User" Role="User" Multiplicity="1" />
+          <End Type="CCSModel.Audit" Role="Audit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Audit">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="ErrorLogID" />
+          </Key>
+          <Property Type="Int32" Name="ErrorLogID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+          <Property Type="String" Name="FunctionName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LineNumber" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ErrorText" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FoodOut">
+          <Key>
+            <PropertyRef Name="DistributionID" />
+          </Key>
+          <Property Type="Int16" Name="DistributionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="Weight" Nullable="false" />
+          <Property Type="Int16" Name="FoodSourceTypeID" Nullable="false" />
+          <Property Type="Int16" Name="DistributionTypeID" Nullable="false" />
+          <Property Type="Int16" Name="Count" />
+          <Property Type="Int16" Name="USDAID" />
+          <Property Type="Int16" Name="FoodCategoryID" />
+          <Property Type="Int16" Name="AgencyID" />
+          <NavigationProperty Name="Agency" Relationship="CCSModel.FK_FoodOut_Agency" FromRole="FoodOut" ToRole="Agency" />
+          <NavigationProperty Name="DistributionType" Relationship="CCSModel.FK_FoodOut_DistributionType" FromRole="FoodOut" ToRole="DistributionType" />
+          <NavigationProperty Name="FoodCategory" Relationship="CCSModel.FK_FoodOut_FoodCategory" FromRole="FoodOut" ToRole="FoodCategory" />
+          <NavigationProperty Name="FoodSourceType" Relationship="CCSModel.FK_FoodOut_FoodSourceType" FromRole="FoodOut" ToRole="FoodSourceType" />
+          <NavigationProperty Name="USDACategory" Relationship="CCSModel.FK_FoodOut_USDACategory" FromRole="FoodOut" ToRole="USDACategory" />
+        </EntityType>
+        <Association Name="FK_FoodOut_Agency">
+          <End Type="CCSModel.Agency" Role="Agency" Multiplicity="0..1" />
+          <End Type="CCSModel.FoodOut" Role="FoodOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agency">
+              <PropertyRef Name="AgencyID" />
+            </Principal>
+            <Dependent Role="FoodOut">
+              <PropertyRef Name="AgencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodOut_DistributionType">
+          <End Type="CCSModel.DistributionType" Role="DistributionType" Multiplicity="1" />
+          <End Type="CCSModel.FoodOut" Role="FoodOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DistributionType">
+              <PropertyRef Name="DistributionTypeID" />
+            </Principal>
+            <Dependent Role="FoodOut">
+              <PropertyRef Name="DistributionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodOut_FoodCategory">
+          <End Type="CCSModel.FoodCategory" Role="FoodCategory" Multiplicity="0..1" />
+          <End Type="CCSModel.FoodOut" Role="FoodOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="FoodCategoryID" />
+            </Principal>
+            <Dependent Role="FoodOut">
+              <PropertyRef Name="FoodCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodOut_FoodSourceType">
+          <End Type="CCSModel.FoodSourceType" Role="FoodSourceType" Multiplicity="1" />
+          <End Type="CCSModel.FoodOut" Role="FoodOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodSourceType">
+              <PropertyRef Name="FoodSourceTypeID" />
+            </Principal>
+            <Dependent Role="FoodOut">
+              <PropertyRef Name="FoodSourceTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodOut_USDACategory">
+          <End Type="CCSModel.USDACategory" Role="USDACategory" Multiplicity="0..1" />
+          <End Type="CCSModel.FoodOut" Role="FoodOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USDACategory">
+              <PropertyRef Name="USDAID" />
+            </Principal>
+            <Dependent Role="FoodOut">
+              <PropertyRef Name="USDAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CCSModelStoreContainer" CdmEntityContainer="CCSEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="CCSModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="StreetAddress1" ColumnName="StreetAddress1" />
+                <ScalarProperty Name="StreetAddress2" ColumnName="StreetAddress2" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="ZipID" ColumnName="ZipID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Agencies">
+            <EntityTypeMapping TypeName="CCSModel.Agency">
+              <MappingFragment StoreEntitySet="Agency">
+                <ScalarProperty Name="AgencyID" ColumnName="AgencyID" />
+                <ScalarProperty Name="AgencyName" ColumnName="AgencyName" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="CCSModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Containers">
+            <EntityTypeMapping TypeName="CCSModel.Container">
+              <MappingFragment StoreEntitySet="Container">
+                <ScalarProperty Name="ContainerID" ColumnName="ContainerID" />
+                <ScalarProperty Name="BinNumber" ColumnName="BinNumber" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="isUSDA" ColumnName="isUSDA" />
+                <ScalarProperty Name="USDAID" ColumnName="USDAID" />
+                <ScalarProperty Name="FoodCategoryID" ColumnName="FoodCategoryID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Cases" ColumnName="Cases" />
+                <ScalarProperty Name="FoodSourcesTypeID" ColumnName="FoodSourcesTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DistributionTypes">
+            <EntityTypeMapping TypeName="CCSModel.DistributionType">
+              <MappingFragment StoreEntitySet="DistributionType">
+                <ScalarProperty Name="DistributionTypeID" ColumnName="DistributionTypeID" />
+                <ScalarProperty Name="DistributionType1" ColumnName="DistributionType" />
+                <ScalarProperty Name="ToClients" ColumnName="ToClients" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodCategories">
+            <EntityTypeMapping TypeName="CCSModel.FoodCategory">
+              <MappingFragment StoreEntitySet="FoodCategory">
+                <ScalarProperty Name="FoodCategoryID" ColumnName="FoodCategoryID" />
+                <ScalarProperty Name="CategoryType" ColumnName="CategoryType" />
+                <ScalarProperty Name="Perishable" ColumnName="Perishable" />
+                <ScalarProperty Name="NonFood" ColumnName="NonFood" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodIns">
+            <EntityTypeMapping TypeName="CCSModel.FoodIn">
+              <MappingFragment StoreEntitySet="FoodIn">
+                <ScalarProperty Name="FoodInID" ColumnName="FoodInID" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="FoodSourceID" ColumnName="FoodSourceID" />
+                <ScalarProperty Name="FoodCategoryID" ColumnName="FoodCategoryID" />
+                <ScalarProperty Name="USDAID" ColumnName="USDAID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodSources">
+            <EntityTypeMapping TypeName="CCSModel.FoodSource">
+              <MappingFragment StoreEntitySet="FoodSource">
+                <ScalarProperty Name="FoodSourceID" ColumnName="FoodSourceID" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="FoodSourceTypeID" ColumnName="FoodSourceTypeID" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodSourceTypes">
+            <EntityTypeMapping TypeName="CCSModel.FoodSourceType">
+              <MappingFragment StoreEntitySet="FoodSourceType">
+                <ScalarProperty Name="FoodSourceTypeID" ColumnName="FoodSourceTypeID" />
+                <ScalarProperty Name="FoodSourceType1" ColumnName="FoodSourceType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="CCSModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="CCSModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="CCSModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateFullName" ColumnName="StateFullName" />
+                <ScalarProperty Name="StateShortName" ColumnName="StateShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USDACategories">
+            <EntityTypeMapping TypeName="CCSModel.USDACategory">
+              <MappingFragment StoreEntitySet="USDACategory">
+                <ScalarProperty Name="USDANumber" ColumnName="USDANumber" />
+                <ScalarProperty Name="USDAID" ColumnName="USDAID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CCSModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zipcodes">
+            <EntityTypeMapping TypeName="CCSModel.Zipcode">
+              <MappingFragment StoreEntitySet="Zipcode">
+                <ScalarProperty Name="ZipID" ColumnName="ZipID" />
+                <ScalarProperty Name="ZipCode1" ColumnName="ZipCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Templates">
+            <EntityTypeMapping TypeName="CCSModel.Template">
+              <MappingFragment StoreEntitySet="Template">
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="TemplateType" ColumnName="TemplateType" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+                <ScalarProperty Name="TemplateID" ColumnName="TemplateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Adjustments">
+            <EntityTypeMapping TypeName="CCSModel.Adjustment">
+              <MappingFragment StoreEntitySet="Adjustment">
+                <ScalarProperty Name="AuditID" ColumnName="AuditID" />
+                <ScalarProperty Name="Cases" ColumnName="Cases" />
+                <ScalarProperty Name="USDANumber" ColumnName="USDANumber" />
+                <ScalarProperty Name="isUSDA" ColumnName="isUSDA" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="FoodCategory" ColumnName="FoodCategory" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="AdjustmentID" ColumnName="AdjustmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Audits">
+            <EntityTypeMapping TypeName="CCSModel.Audit">
+              <MappingFragment StoreEntitySet="Audit">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="AuditID" ColumnName="AuditID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ErrorLogs">
+            <EntityTypeMapping TypeName="CCSModel.ErrorLog">
+              <MappingFragment StoreEntitySet="ErrorLog">
+                <ScalarProperty Name="ErrorText" ColumnName="ErrorText" />
+                <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="ErrorLogID" ColumnName="ErrorLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodOuts">
+            <EntityTypeMapping TypeName="CCSModel.FoodOut">
+              <MappingFragment StoreEntitySet="FoodOut">
+                <ScalarProperty Name="AgencyID" ColumnName="AgencyID" />
+                <ScalarProperty Name="FoodCategoryID" ColumnName="FoodCategoryID" />
+                <ScalarProperty Name="USDAID" ColumnName="USDAID" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="DistributionTypeID" ColumnName="DistributionTypeID" />
+                <ScalarProperty Name="FoodSourceTypeID" ColumnName="FoodSourceTypeID" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="DistributionID" ColumnName="DistributionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

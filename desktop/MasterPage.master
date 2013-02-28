@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/global.master" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="desktop_MasterPage" %>
+
+<asp:Content ID="Content" ContentPlaceHolderID="global1" runat="server">
+
+    <!DOCTYPE html>
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <title></title>
+
+        <link href="~/css/desktop.css" rel="stylesheet" />
+
+         <script src="<%= Config.DOMAIN() %>js/jquery-1.8.2.min.js"></script>
+            <script src="<%= Config.DOMAIN() %>js/behavior.js"></script>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+            <asp:ContentPlaceHolder id="head" runat="server">
+            </asp:ContentPlaceHolder>
+        </head>
+        <body>
+            <form id="form1" runat="server">
+                <ul id="nav">
+                    <li><a href="<%= Config.DOMAIN() %>">Home</a></li>
+                    <li><a href="<%= Config.DOMAIN() %>desktop/home.aspx">Desktop Home</a></li>
+                    <li id="data" runat="server"><a href="<%= Config.DOMAIN() %>desktop/managedata.aspx">Manage Data</a></li>
+                    <li id="users" runat="server"><a href="<%= Config.DOMAIN() %>desktop/users.aspx">Users</a></li>
+                    <li id="reports" runat="server" ><a href="<%= Config.DOMAIN() %>desktop/reports">Reports</a></li>
+                    <% if (((global)this.Master).UserId != 0)
+                       { %>
+                        <li class="right"><asp:LinkButton ID="linkBtnLogout" runat="server" Text="Log Out" OnClick="linkBtnLogout_Click"></asp:LinkButton></li>
+                        <li class="right"><a href="#"><%= ((global)this.Master).Name %></a></li>
+                    <% } %>
+                </ul>
+               <div id="wrapper">
+                    <h1 id="pageTitle">
+                        <asp:ContentPlaceHolder id="PlaceHolder_PageTitle" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </h1>
+                    <div id="container">
+                        <asp:ContentPlaceHolder id="PlaceHolder_Content" runat="server">
+        
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+        </form>
+    </body>
+    </html>
+</asp:Content>

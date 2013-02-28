@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eb4b5a34817b420a9382542fac786a4f" Name="Diagram1">
+        <EntityTypeShape EntityType="CCSModel.Address" Width="1.5" PointX="1.5" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.Agency" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.City" Width="1.5" PointX="1.5" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.Container" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.DistributionType" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.FoodCategory" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.FoodIn" Width="1.5" PointX="6" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.FoodSource" Width="1.5" PointX="3.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.FoodSourceType" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.Location" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.Log" Width="1.5" PointX="8" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.State" Width="1.5" PointX="1.5" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.USDACategory" Width="1.5" PointX="0.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.User" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCSModel.Zipcode" Width="1.5" PointX="1.5" PointY="27.125" IsExpanded="true" />
+        <AssociationConnector Association="CCSModel.FK_Address_City" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_Address_State" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_Address_Zipcode" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_Agency_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_FoodSource_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_Container_FoodCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_Container_FoodSourceType" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_Container_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_Container_USDACategory" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_FoodIn_FoodCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_FoodIn_FoodSource" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_FoodIn_USDACategory" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_FoodSource_FoodSourceType" ManuallyRouted="false" />
+        <AssociationConnector Association="CCSModel.FK_Log_Log" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CCSModel.Template" Width="1.5" PointX="9.875" PointY="23.875" />
+        <EntityTypeShape EntityType="CCSModel.Adjustment" Width="1.5" PointX="22" PointY="31.625" />
+        <EntityTypeShape EntityType="CCSModel.Audit" Width="1.5" PointX="4.5" PointY="33.125" />
+        <AssociationConnector Association="CCSModel.FK_Adjustment_Audit" />
+        <AssociationConnector Association="CCSModel.FK_Audit_User" />
+        <EntityTypeShape EntityType="CCSModel.ErrorLog" Width="1.5" PointX="12.875" PointY="30" />
+        <EntityTypeShape EntityType="CCSModel.FoodOut" Width="1.5" PointX="10.822127909782402" PointY="24.236011397203434" />
+        <AssociationConnector Association="CCSModel.FK_FoodOut_Agency" />
+        <AssociationConnector Association="CCSModel.FK_FoodOut_DistributionType" />
+        <AssociationConnector Association="CCSModel.FK_FoodOut_FoodCategory" />
+        <AssociationConnector Association="CCSModel.FK_FoodOut_FoodSourceType" />
+        <AssociationConnector Association="CCSModel.FK_FoodOut_USDACategory" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

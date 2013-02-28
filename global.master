@@ -1,0 +1,13 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="global.master.cs" Inherits="global" %>
+
+<asp:ContentPlaceHolder id="global1" runat="server" />
+
+<%-- 
+<div id="revision"
+    style="position:absolute; bottom:0px; right:20px; font-size:10px">
+    rev <%= Config.REVISION() %>
+</div>
+--%>
+
+<iframe id="Defib" src="keep-alive.aspx" frameborder="0" width="0" height="0" runat="server">
+</iframe>

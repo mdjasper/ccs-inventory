@@ -1,0 +1,110 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Microsoft.Reporting.WebForms;
+
+public partial class desktop_reports_displayinout : System.Web.UI.Page
+{
+    public DataTable source { get; set; }
+
+    protected void page_load(object sender, eventargs e)
+    {
+        if (!this.ispostback)
+        {
+            if (session["startdate"] == null || session["enddate"] == null || session["reporttemplate"] == null)
+                response.redirect(config.domain() + "desktop/reports");
+
+            datetime startdate = (datetime)session["startdate"];
+            datetime enddate = (datetime)session["enddate"];
+            inoutreporttemplate template = (inoutreporttemplate)session["reporttemplate"];
+
+            reportdatasource source = new reportdatasource("dataset", (datatable)(loaddata(startdate, enddate, template).inout));
+            reportviewer.localreport.datasources.clear();
+            reportviewer.localreport.datasources.add(source);   
+            reportviewer.localreport.setparameters(new reportparameter("startdate", startdate.tostring("d")));
+            reportviewer.localreport.setparameters(new reportparameter("enddate", enddate.tostring("d")));
+       
+
+
+            reportviewer.databind();
+            reportviewer.localreport.refresh();
+
+        }    
+    }
+
+    private   loaddata(datetime startdate, datetime enddate, incomingreporttemplate template)
+    {
+        reportsdataset ds = new reportsdataset();
+        using (ccsentities db = new ccsentities())
+        {
+            var foodcategoriesdata = (from f in db.foodcategories
+                                      where template.foodcategories.contains(f.foodcategoryid.tostring())
+                                      orderby f.categorytype
+                                      select f);
+            var usdacategoriesdata = (from u in db.usdacategories
+                                      where  template.usdacategories.contains(u.usdaid.tostring())
+                                      orderby u.description
+                                      select u);
+
+
+            foreach (var f in foodcategoriesdata)
+            {
+
+                decimal weightIn = (from w in f.foodins
+                                                 where w.timestamp <= enddate && w.timestamp >= startdate
+                                                 select w.weight).sum();
+
+                double weightOut = (from w in f.foodouts
+                                              where w.timestamp <= enddate && w.timestamp >= startdate
+                                              select w.weight).sum();
+
+                double countIn = (from w in f.foodouts
+                                    where w.timestamp <= enddate && w.timestamp >= startdate
+                                    select w.Count).sum();
+
+                double countOut = (from w in f.foodouts
+                                    where w.timestamp <= enddate && w.timestamp >= startdate
+                                    select w.Count).sum();
+
+
+            }
+            foreach (foodsource row in data)
+            {
+                string storename = row.source;
+                address add = row.address;
+                string storeaddress = string.format("{0} {1} {2}", add.streetaddress1, add.streetaddress2, add.city.cityname);
+                string storeid = row.storeid;
+
+
+                var foodin = from f in row.foodins
+                             where f.timestamp >= startdate && f.timestamp <= enddate
+                             select f;
+                string bakeryweight = (from f in foodin
+                                       where f.foodcategory.categorytype == "bakery"
+                                       select f.weight).sum().tostring();
+                string dairyweight = (from f in foodin
+                                      where f.foodcategory.categorytype == "dairy"
+                                      select f.weight).sum().tostring();
+                string meatweight = (from f in row.foodins
+                                     where f.foodcategory.categorytype == "meat"
+                                     select f.weight).sum().tostring();
+                string produceweight = (from f in foodin
+                                        where f.foodcategory.categorytype == "produce"
+                                        select f.weight).sum().tostring();
+                string otherweight = (from f in foodin
+                                      where f.foodcategory.categorytype != "produce" &&
+                                      f.foodcategory.categorytype != "meat" &&
+                                      f.foodcategory.categorytype != "dairy" &&
+                                      f.foodcategory.categorytype != "bakery"
+                                      select f.weight).sum().tostring();
+                ds.groceryrescue.addgroceryrescuerow(storeaddress, storename, storeid, bakeryweight, dairyweight, meatweight, produceweight, otherweight);
+
+            }
+        }
+        return ds;
+    }
+}

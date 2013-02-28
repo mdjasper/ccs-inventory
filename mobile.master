@@ -1,0 +1,41 @@
+﻿<%@ Master MasterPageFile="~/global.master" Language="C#" AutoEventWireup="true" CodeFile="mobile.master.cs" Inherits="mobile" %>
+
+<asp:Content ID="PageContent" ContentPlaceHolderID="global1" runat="server">
+
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <head runat="server">
+            <title></title>
+            <link href="css/mobile.css" rel="stylesheet" />
+            <link href="css/input.css" rel="stylesheet" />
+            <script src="<%= Config.DOMAIN() %>js/jquery-1.8.2.min.js"></script>
+            <script src="<%= Config.DOMAIN() %>js/behavior.js"></script>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+            <asp:ContentPlaceHolder id="head" runat="server">
+            </asp:ContentPlaceHolder>
+        </head>
+        <body>
+            <form id="form1" runat="server">
+                <ul id="nav">
+                    <% if (((global)this.Master).UserId != 0)
+                       { %>
+                        <li><a href="<%= Config.DOMAIN() %>">Home</a></li>
+                        <li class="right"><asp:LinkButton runat="server" Text="Log Out" OnClick="Unnamed_Click"></asp:LinkButton></li>
+                        <li class="right"><a href="javascript:void(0)"><%= ((global)this.Master).Name %></a></li>
+                    <% } %>
+                </ul>
+                <div id="wrapper">
+                    <h1 id="pageTitle">
+                        <asp:ContentPlaceHolder id="PlaceHolder_PageTitle" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </h1>
+                    <div id="container">
+                        <asp:ContentPlaceHolder id="PlaceHolder_Content" runat="server">
+        
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </form>
+        </body>
+    </html>
+</asp:Content>
